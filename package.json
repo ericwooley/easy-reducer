@@ -1,0 +1,49 @@
+{
+  "name": "easy-reducer",
+  "version": "0.1.0",
+  "description": "Easy reducers with less boilerplate",
+  "main": "lib/",
+  "scripts": {
+    "prepublish": "rm -rf lib && typings install && npm run test && tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericwooley/easy-reducer.git"
+  },
+  "keywords": [
+    "redux",
+    "react",
+    "reducer",
+    "elm",
+    "frp",
+    "thunk"
+  ],
+  "author": "Eric Wooley <ericwooley@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericwooley/easy-reducer/issues"
+  },
+  "homepage": "https://github.com/ericwooley/easy-reducer#readme",
+  "devDependencies": {
+    "jest-cli": "^15.1.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "testRegex": "src/__tests__/.*\\.(ts|tsx|js)$"
+  },
+  "dependencies": {
+    "lodash": "^4.15.0",
+    "lodash.merge": "^4.6.0",
+    "object-assign": "^4.1.0"
+  }
+}
