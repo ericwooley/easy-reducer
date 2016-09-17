@@ -1,4 +1,4 @@
-# easy-reducer [![Build Status](https://travis-ci.org/ericwooley/easy-reducer.svg?branch=master)](https://travis-ci.org/ericwooley/easy-reducer)
+# easy-reducer [![Build Status](https://travis-ci.org/ericwooley/easy-reducer.svg?branch=master)](https://travis-ci.org/ericwooley/easy-reducer)[![Code Climate](https://codeclimate.com/github/ericwooley/easy-reducer/badges/gpa.svg)](https://codeclimate.com/github/ericwooley/easy-reducer)[![Test Coverage](https://codeclimate.com/github/ericwooley/easy-reducer/badges/coverage.svg)](https://codeclimate.com/github/ericwooley/easy-reducer/coverage)[![Issue Count](https://codeclimate.com/github/ericwooley/easy-reducer/badges/issue_count.svg)](https://codeclimate.com/github/ericwooley/easy-reducer)
 Easier reducers with less boilerplate.
 
 # installing
