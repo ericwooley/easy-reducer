@@ -5,7 +5,7 @@
   "main": "lib/",
   "scripts": {
     "prepublish": "rm -rf lib && typings install && npm run test && tsc",
-    "test": "jest"
+    "test": "tslint src/*.ts && jest"
   },
   "repository": {
     "type": "git",
