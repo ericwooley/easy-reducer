@@ -35,10 +35,11 @@ const asyncActions = {
   },
 }
 
-// Test reducer now has all the action creators you would use for your methods, with the types TR1/methodName
-export const testReducer1 = easyReducerCreator(defaultState, syncActions, asyncActions)('TR1')
+const testReducerCreator = easyReducerCreator(defaultState, syncActions, asyncActions)
+// testReducer1 now has all the action creators you would use for your methods, with the types TR1/methodName
+export const testReducer1 = testReducerCreator('TR1')
 // Reducers are reusable with different ID's
-export const testReducer2 = easyReducerCreator(defaultState, syncActions, asyncActions)('TR2')
+export const testReducer2 = testReducerCreator('TR2')
 
 export const store = createStore(combineReducers({
   // a reducer property is attached, which serves as the actual reducer.
