@@ -4,15 +4,12 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby
-      - javascript
-      - python
-      - php
+      - typescript
   tslint:
     enabled: true
   fixme:
     enabled: true
 ratings:
   paths:
-  - "**.ts"
+  - "src/**/*.ts"
 exclude_paths: ['lib']
