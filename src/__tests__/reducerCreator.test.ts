@@ -94,7 +94,9 @@ describe('reducerCreator', () => {
     let defaultState = {
       test: 'data'
     }
-    let syncActions, asyncActions, spy
+    let syncActions
+    let asyncActions
+    let spy
 
     beforeEach(() => {
       spy = jest.fn()
@@ -105,16 +107,22 @@ describe('reducerCreator', () => {
         },
         asyncStateModifyer (num, syncActions, dispatch, getState) {
           return new Promise((resolve) => {
-            setTimeout(() => {
-              resolve(dispatch(syncActions.testDataPlusNum(num)))
-            }, 20)
+            setTimeout(
+              () => {
+                resolve(dispatch(syncActions.testDataPlusNum(num)))
+              },
+              20
+            )
           })
         },
         asyncTimeoutTest (syncActions, dispatch, getState) {
           return new Promise((resolve) => {
-            setTimeout(() => {
-              resolve(dispatch(syncActions.testSpy()))
-            }, 20)
+            setTimeout(
+              () => {
+                resolve(dispatch(syncActions.testSpy()))
+              },
+              20
+            )
           })
         },
         asyncTestDataPlus1 (syncActions, dispatch, getState) {
@@ -125,7 +133,7 @@ describe('reducerCreator', () => {
         testDataPlusNum (num, state) {
           return merge({}, state, {test: 'data' + num})
         },
-        testSpy: (state) => spy() || merge({}, state),
+        testSpy: (state) => spy() || merge({}, state)
       }
       testReducer = reducerCreator(defaultState, syncActions, asyncActions)('ID')
       testStore = createStore(combineReducers({testReducer: testReducer.reducer}), undefined, applyMiddleware(thunk))

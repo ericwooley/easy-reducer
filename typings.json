@@ -5,6 +5,7 @@
     "redux-thunk": "registry:npm/redux-thunk#2.0.0+20160525185520"
   },
   "globalDependencies": {
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504",
     "jest": "registry:dt/jest#0.9.0+20160914121351"
   }
 }

@@ -1,6 +1,8 @@
-# easy-reducer
+# easy-reducer [![Build Status](https://travis-ci.org/ericwooley/easy-reducer.svg?branch=master)](https://travis-ci.org/ericwooley/easy-reducer)
 Easier reducers with less boilerplate.
 
+# installing
+`npm install --save easy-reducer`
 # Using easy reducers
 
 ```js
