@@ -21,6 +21,12 @@ describe('reducerCreator', () => {
     expect(() => (reducerCreator as any)({}, {reducer: ''})('ID'))
     .toThrowError(`You cannot have an action called 'reducer'`)
   })
+  it('should work with asyncActions', () => {
+    expect(() => (reducerCreator as any)({}, {}, {})('ID')).toBeDefined()
+  })
+  it('should work without asyncActions', () => {
+    expect(() => (reducerCreator as any)({}, {})('ID')).toBeDefined()
+  })
   describe('sync actions', () => {
     let testReducer
     let defaultState = {
