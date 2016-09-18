@@ -2,7 +2,11 @@
 Easier reducers with less boilerplate.
 
 # installing
+
 `npm install --save easy-reducer`
+
+[![NPM](https://nodei.co/npm/easy-reducer.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/easy-reducer/)
+
 # Using easy reducers
 
 ```js
@@ -10,7 +14,7 @@ import easyReducerCreator from 'easy-reducer'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
-const defaultState {
+const defaultState = {
   test: 'data'
 }
 const syncActions = {
