@@ -3,6 +3,11 @@ export interface IReducer {
   reducer: Function
 }
 
+const restrictedActionNames = {
+  TYPES: true,
+  reducer: true
+}
+
 export default function makeReducer
 <ISubState, T, V>
 (defaultState: ISubState, Actions?: T, AsyncActions?: V): (ID: string) => V & T & IReducer {
@@ -16,14 +21,18 @@ export default function makeReducer
 
     const newSyncActions: T & IReducer = merge(({} as IReducer), Actions)
     const newAsyncActions: V = merge({}, AsyncActions)
-
+    const TYPES = {}
     // Actions are now functions that auto return types
     Object.keys(Actions).forEach((key) => {
-      (newSyncActions[key]) = (...payload: any[]) => {
-        return { type: `${ID}/${key}`, payload }
+      if (restrictedActionNames[key]) {
+        throw new Error(`You cannot have an action called '${key}'`)
+      }
+      const type = `${ID}/${key}`
+      TYPES[key] = type
+      newSyncActions[key] = (...payload: any[]) => {
+        return { type, payload }
       }
     })
-
     if (AsyncActions) {
       // async actions have dispatch and the payload injected into them.
       Object.keys(AsyncActions).forEach((key) => {
@@ -37,6 +46,7 @@ export default function makeReducer
       })
     }
     const baseReducer = {
+      TYPES,
       reducer: (state: ISubState, action: {type: string, payload?: any}) => {
         state = state || defaultState
         /* tslint:disable */

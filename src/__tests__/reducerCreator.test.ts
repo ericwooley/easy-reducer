@@ -1,4 +1,3 @@
-
 import reducerCreator from '../reducerCreator'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
@@ -13,6 +12,14 @@ describe('reducerCreator', () => {
   })
   it('should throw an error if there is no default state', () => {
     expect(() => (reducerCreator as any)()('ID')).toThrowError('Reducers must have a default state')
+  })
+  it('should throw an error if you you try to name your action `TYPES`', () => {
+    expect(() => (reducerCreator as any)({}, {TYPES: ''})('ID'))
+      .toThrowError(`You cannot have an action called 'TYPES'`)
+  })
+  it('should throw an error if you you try to name your action `reducer`', () => {
+    expect(() => (reducerCreator as any)({}, {reducer: ''})('ID'))
+    .toThrowError(`You cannot have an action called 'reducer'`)
   })
   describe('sync actions', () => {
     let testReducer
@@ -36,6 +43,13 @@ describe('reducerCreator', () => {
     it('should keep arguments as an array', () => {
       expect(testReducer.testDataPlusManyNumbers(1, 2, 3, 4))
         .toEqual({type: 'ID/testDataPlusManyNumbers', payload: [1, 2, 3, 4]})
+    })
+    it('should have type constansts', () => {
+      expect(testReducer.TYPES).toEqual({
+        'testDataPlus1': 'ID/testDataPlus1',
+        'testDataPlusNumber': 'ID/testDataPlusNumber',
+        'testDataPlusManyNumbers': 'ID/testDataPlusManyNumbers'
+      })
     })
   })
   describe('reducing', () => {

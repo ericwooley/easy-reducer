@@ -49,6 +49,11 @@ const asyncActions = {
 const testReducerCreator = easyReducerCreator(defaultState, syncActions, asyncActions)
 // testReducer1 now has all the action creators you would use for your methods, with the types TR1/methodName
 export const testReducer1 = testReducerCreator('TR1')
+
+// generated types as constants for reference with RXJS epics or whatever
+// EG: {testDataPlusNum: 'TR1/testDataPlusNum', testDataPlusTwoNum: 'TR1/testDataPlusTwoNum'}
+console.log(testReducer1.TYPES) 
+
 // Reducers are reusable with different ID's
 export const testReducer2 = testReducerCreator('TR2')
 
