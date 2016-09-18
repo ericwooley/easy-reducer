@@ -1,7 +1,14 @@
-# easy-reducer [![Build Status](https://travis-ci.org/ericwooley/easy-reducer.svg?branch=master)](https://travis-ci.org/ericwooley/easy-reducer)[![Code Climate](https://codeclimate.com/github/ericwooley/easy-reducer/badges/gpa.svg)](https://codeclimate.com/github/ericwooley/easy-reducer)[![Test Coverage](https://codeclimate.com/github/ericwooley/easy-reducer/badges/coverage.svg)](https://codeclimate.com/github/ericwooley/easy-reducer/coverage)[![Issue Count](https://codeclimate.com/github/ericwooley/easy-reducer/badges/issue_count.svg)](https://codeclimate.com/github/ericwooley/easy-reducer)
+# easy-reducer 
+[![Build Status](https://travis-ci.org/ericwooley/easy-reducer.svg?branch=master)](https://travis-ci.org/ericwooley/easy-reducer)
+[![Code Climate](https://codeclimate.com/github/ericwooley/easy-reducer/badges/gpa.svg)](https://codeclimate.com/github/ericwooley/easy-reducer)
+[![Test Coverage](https://codeclimate.com/github/ericwooley/easy-reducer/badges/coverage.svg)](https://codeclimate.com/github/ericwooley/easy-reducer/coverage)
+[![Issue Count](https://codeclimate.com/github/ericwooley/easy-reducer/badges/issue_count.svg)](https://codeclimate.com/github/ericwooley/easy-reducer)
+
 Easier reducers with less boilerplate.
 
-# installing
+Easy reducers generates action creators and types, and makes your reducers reusable.
+
+# Installing
 
 `npm install --save easy-reducer`
 
@@ -54,5 +61,4 @@ export const store = createStore(combineReducers({
 store.dispatch(testReducer1.testDataPlusNum(1))
 store.dispatch(testReducer1.asyncStateModifyer(2))
 .then(() => store.dispatch(testReducer2.testDataPlusTwoNum(3, 4)))
-
 ```
