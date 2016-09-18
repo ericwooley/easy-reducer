@@ -6,7 +6,7 @@ Easier reducers with less boilerplate.
 # Using easy reducers
 
 ```js
-import easyReducerCreator from '../reducerCreator'
+import easyReducerCreator from 'easy-reducer'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
